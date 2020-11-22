@@ -3,9 +3,9 @@
 module.exports = {
   /**
    * デッキを作成します。
-   * @param {*} nDeck 山札枚数
-   * @param {*} cx クライマックス枚数
-   * @return {*} deck
+   * @param {number} nDeck 山札枚数
+   * @param {number} cx クライマックス枚数
+   * @return {Array.<number>} deck
    */
   createDeck : function(nDeck, cx){
     const deck = new Array(nDeck);
@@ -27,9 +27,9 @@ module.exports = {
 
   /**
    * 山札をめくりキャンセルするかどうかを確認します。
-   * @param {*} deck デッキ
-   * @param {*} damage 打点
-   * @return {*} {deck:deck, cancel:true/false}
+   * @param {Array.<number>} deck デッキ
+   * @param {number} damage 打点
+   * @return {{deck: Array.<number>, cancel: boolean}} {deck:deck, cancel:true/false}
    */
   cancelOrNot : function(deck, damage){
     let d = deck;
