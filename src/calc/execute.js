@@ -6,7 +6,7 @@ const ws = require('./wsdeck.js');
  * X枚集中を1回打った時のHit数（率）
  * @param {number} deckNum デッキ枚数
  * @param {number} cxNum CX枚数
- * @param {number} flipNumber めくる枚数
+ * @param {number} flipNumber めくる枚数X
  * @param {number} loopNum ループ回数
  */
 function averageConcentration (deckNum, cxNum, flipNum, loopNum=10000) {
@@ -47,3 +47,5 @@ function averageDamage (deckNum, cxNum, flipArray, loopNum=10000) {
   console.log(totalDamage/loopNum);
   return totalDamage/loopNum;
 }
+
+export {averageConcentration, averageDamage}

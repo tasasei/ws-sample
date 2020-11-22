@@ -1,31 +1,49 @@
 import React, { useState } from 'react';
+import { averageConcentration, averageDamage } from './calc/execute';
 import './App.css';
 
 function App() {
-  const [count1, setCount1] = useState(7)
-  const [count2, setCount2] = useState(4)
+  const [deckNum, setDeckNum] = useState(50)
+  const [cxNum, setCxNum] = useState(8)
+  const [flipNum, setFlipNum] = useState(4)
+  const [resConcentrate, setResConcentrate] = useState(-1)
 
   return (
     <div className="App">
       <body className="App-body">
         <div>
-          sample1
+          デッキ枚数
           <input
-            value={count1}
-            onChange={e => setCount1(e.target.value)}
+            value={deckNum}
+            onChange={e => setDeckNum(e.target.value)}
             type="number"
           />
         </div>
         <div>
-          sample2
+          CX枚数
           <input 
-            value={count2}
-            onChange={e => setCount2(e.target.value)}
+            value={cxNum}
+            onChange={e => setCxNum(e.target.value)}
             type="numnber"
            />
         </div>
         <div>
-          sample1 + sample2 = {(Number(count1) || 0) + (Number(count2) || 0)}
+          めくる枚数
+          <input 
+            value={flipNum}
+            onChange={e => setFlipNum(e.target.value)}
+            type="numnber"
+           />
+        </div>
+        <div>
+          <button
+            onClick={e => setResConcentrate(averageConcentration(deckNum, cxNum, flipNum))}
+          >
+            集中ヒット率計算ボタン
+          </button>
+        </div>
+        <div>
+          集中ヒット率 = {resConcentrate}
         </div>
       </body>
     </div>
