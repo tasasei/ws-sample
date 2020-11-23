@@ -7,9 +7,10 @@ function App() {
   return (
     <div className="App">
       <body className="App-body">
-        <div style={{ marginBottom: "30px" }}>
+        <div>
           <Concentrate />
         </div>
+        <div style={{ marginBottom: "30px" }} />
         <div>
           <Damage />
         </div>
