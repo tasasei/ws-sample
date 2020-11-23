@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import { averageConcentration } from "./calc/execute";
 
+const defaultDeckNum = 50;
+const defaultCxNum = 8;
+const defaultFlipNum = 4;
+const defaultLoopNum = 10000;
+const defaultResult = averageConcentration(
+  defaultDeckNum,
+  defaultCxNum,
+  defaultFlipNum,
+  defaultLoopNum
+);
+
 export default function Concentrate() {
-  const [deckNum, setDeckNum] = useState(50);
-  const [cxNum, setCxNum] = useState(8);
-  const [flipNum, setFlipNum] = useState(4);
-  const [loopNum, setLoopNum] = useState(10000);
-  const [resConcentrate, setResConcentrate] = useState(-1);
+  const [deckNum, setDeckNum] = useState(defaultDeckNum);
+  const [cxNum, setCxNum] = useState(defaultCxNum);
+  const [flipNum, setFlipNum] = useState(defaultFlipNum);
+  const [loopNum, setLoopNum] = useState(defaultLoopNum);
+  const [resConcentrate, setResConcentrate] = useState(defaultResult);
 
   return (
     <>

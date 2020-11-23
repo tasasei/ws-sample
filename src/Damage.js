@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import { averageDamage } from "./calc/execute";
 
+const defaultDeckNum = 50;
+const defaultCxNum = 8;
+const defaultDamageArray = [2, 2, 2];
+const defaultLoopNum = 10000;
+const defaultResult = averageDamage(
+  defaultDeckNum,
+  defaultCxNum,
+  defaultDamageArray,
+  defaultLoopNum
+);
+
 export default function Concentrate() {
-  const [deckNum, setDeckNum] = useState(50);
-  const [cxNum, setCxNum] = useState(8);
-  const [damageArray, setDamageArray] = useState([2, 2, 2]);
-  const [loopNum, setLoopNum] = useState(10000);
-  const [resDamage, setResDamage] = useState(-1);
+  const [deckNum, setDeckNum] = useState(defaultDeckNum);
+  const [cxNum, setCxNum] = useState(defaultCxNum);
+  const [damageArray, setDamageArray] = useState(defaultDamageArray);
+  const [loopNum, setLoopNum] = useState(defaultLoopNum);
+  const [resDamage, setResDamage] = useState(defaultResult);
 
   return (
     <>
