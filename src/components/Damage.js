@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button, Form, InputGroup, FormControl } from "react-bootstrap";
 import { averageDamage } from "../calc/execute";
 
 const defaultDeckNum = 50;
@@ -20,31 +21,34 @@ export default function Concentrate() {
   const [resDamage, setResDamage] = useState(defaultResult);
 
   return (
-    <>
-      <div>
-        デッキ枚数
-        <input
+    <Form>
+      <Form.Group>
+        <Form.Label>デッキ枚数</Form.Label>
+        <Form.Control
           value={deckNum}
           onChange={(e) => setDeckNum(e.target.value)}
           type="number"
         />
-      </div>
-      <div>
-        CX枚数
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>CX枚数</Form.Label>
+        <Form.Control
           value={cxNum}
           onChange={(e) => setCxNum(e.target.value)}
           type="numnber"
         />
-      </div>
-      <div>
+      </Form.Group>
+      <Form.Group>
         ダメージ
-        <button onClick={() => setDamageArray(damageArray.concat([1]))}>
+        <Button
+          variant="secondary"
+          onClick={() => setDamageArray(damageArray.concat([1]))}
+        >
           +
-        </button>
+        </Button>
         {damageArray.map((e, i) => (
-          <div>
-            <input
+          <InputGroup>
+            <FormControl
               value={e}
               onChange={(e) => {
                 damageArray[i] = Number(e.target.value);
@@ -52,37 +56,42 @@ export default function Concentrate() {
               }}
               type="number"
             />
-            <button
-              onClick={() =>
-                setDamageArray(
-                  damageArray.filter((value, index) => index !== i)
-                )
-              }
-              hidden={damageArray.length < 2}
-            >
-              -
-            </button>
-          </div>
+            <InputGroup.Prepend>
+              <Button
+                variant="outline-secondary"
+                onClick={() =>
+                  setDamageArray(
+                    damageArray.filter((value, index) => index !== i)
+                  )
+                }
+                hidden={damageArray.length < 2}
+              >
+                -
+              </Button>
+            </InputGroup.Prepend>
+          </InputGroup>
         ))}
-      </div>
-      <div>
-        計算ループ回数
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>計算ループ回数</Form.Label>
+        <Form.Control
           value={loopNum}
           onChange={(e) => setLoopNum(e.target.value)}
           type="numnber"
         />
-      </div>
+      </Form.Group>
       <div>
-        <button
+        <Button
           onClick={(e) =>
             setResDamage(averageDamage(deckNum, cxNum, damageArray, loopNum))
           }
         >
           ダメージ期待値計算ボタン
-        </button>
+        </Button>
+        <span class="ml-3" style={{ fontWeight: "bold" }}>
+          ダメージ期待値 = {resDamage}
+        </span>
       </div>
-      <div>ダメージ期待値 = {resDamage}</div>
-    </>
+    </Form>
   );
 }
