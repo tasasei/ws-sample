@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Button, Form } from "react-bootstrap";
 import { averageConcentration } from "../calc/execute";
 
 const defaultDeckNum = 50;
@@ -20,41 +21,41 @@ export default function Concentrate() {
   const [resConcentrate, setResConcentrate] = useState(defaultResult);
 
   return (
-    <>
-      <div>
-        デッキ枚数
-        <input
+    <Form>
+      <Form.Group>
+        <Form.Label>デッキ枚数</Form.Label>
+        <Form.Control
           value={deckNum}
           onChange={(e) => setDeckNum(e.target.value)}
           type="number"
         />
-      </div>
-      <div>
-        CX枚数
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>CX枚数</Form.Label>
+        <Form.Control
           value={cxNum}
           onChange={(e) => setCxNum(e.target.value)}
           type="numnber"
         />
-      </div>
-      <div>
-        めくる枚数
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>めくる枚数</Form.Label>
+        <Form.Control
           value={flipNum}
           onChange={(e) => setFlipNum(e.target.value)}
           type="numnber"
         />
-      </div>
-      <div>
-        計算ループ回数
-        <input
+      </Form.Group>
+      <Form.Group>
+        <Form.Label>計算ループ回数</Form.Label>
+        <Form.Control
           value={loopNum}
           onChange={(e) => setLoopNum(e.target.value)}
           type="numnber"
         />
-      </div>
+      </Form.Group>
       <div>
-        <button
+        <Button
           onClick={(e) =>
             setResConcentrate(
               averageConcentration(deckNum, cxNum, flipNum, loopNum)
@@ -62,9 +63,11 @@ export default function Concentrate() {
           }
         >
           集中ヒット率計算ボタン
-        </button>
+        </Button>
+        <span class="ml-3" style={{ fontWeight: "bold" }}>
+          集中ヒット率 = {resConcentrate}
+        </span>
       </div>
-      <div>集中ヒット率 = {resConcentrate}</div>
-    </>
+    </Form>
   );
 }
