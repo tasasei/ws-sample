@@ -1,5 +1,3 @@
-"use strict";
-
 module.exports = {
   /**
    * デッキを作成します。
