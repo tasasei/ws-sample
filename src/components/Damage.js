@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { averageDamage } from "./calc/execute";
+import { averageDamage } from "../calc/execute";
 
 const defaultDeckNum = 50;
 const defaultCxNum = 8;

@@ -1,7 +1,7 @@
 import React from "react";
-import Damage from "./Damage";
+import Damage from "./components/Damage";
 import "./App.css";
-import Concentrate from "./Concentrate";
+import Concentrate from "./components/Concentrate";
 
 function App() {
   return (

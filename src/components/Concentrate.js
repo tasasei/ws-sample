@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { averageConcentration } from "./calc/execute";
+import { averageConcentration } from "../calc/execute";
 
 const defaultDeckNum = 50;
 const defaultCxNum = 8;
