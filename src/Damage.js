@@ -5,6 +5,7 @@ export default function Concentrate() {
   const [deckNum, setDeckNum] = useState(50);
   const [cxNum, setCxNum] = useState(8);
   const [damageArray, setDamageArray] = useState([2, 2, 2]);
+  const [loopNum, setLoopNum] = useState(10000);
   const [resDamage, setResDamage] = useState(-1);
 
   return (
@@ -54,9 +55,17 @@ export default function Concentrate() {
         ))}
       </div>
       <div>
+        計算ループ回数
+        <input
+          value={loopNum}
+          onChange={(e) => setLoopNum(e.target.value)}
+          type="numnber"
+        />
+      </div>
+      <div>
         <button
           onClick={(e) =>
-            setResDamage(averageDamage(deckNum, cxNum, damageArray))
+            setResDamage(averageDamage(deckNum, cxNum, damageArray, loopNum))
           }
         >
           ダメージ期待値計算ボタン

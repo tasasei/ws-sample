@@ -5,6 +5,7 @@ export default function Concentrate() {
   const [deckNum, setDeckNum] = useState(50);
   const [cxNum, setCxNum] = useState(8);
   const [flipNum, setFlipNum] = useState(4);
+  const [loopNum, setLoopNum] = useState(10000);
   const [resConcentrate, setResConcentrate] = useState(-1);
 
   return (
@@ -34,9 +35,19 @@ export default function Concentrate() {
         />
       </div>
       <div>
+        計算ループ回数
+        <input
+          value={loopNum}
+          onChange={(e) => setLoopNum(e.target.value)}
+          type="numnber"
+        />
+      </div>
+      <div>
         <button
           onClick={(e) =>
-            setResConcentrate(averageConcentration(deckNum, cxNum, flipNum))
+            setResConcentrate(
+              averageConcentration(deckNum, cxNum, flipNum, loopNum)
+            )
           }
         >
           集中ヒット率計算ボタン
